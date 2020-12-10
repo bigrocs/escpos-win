@@ -9,16 +9,21 @@ const EventEmitter = require('events');
  */
 function Win(address) {
     this.device = require('node-escpos-win');
-    EventEmitter.call(this);
+    console.log(address);
+    
     if (address) {
+        console.log(1);
+        
         this.address = address;;
     }else{
+        console.log(2);
         const usb = this.device.GetUsbDeviceList();
         const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
         if (printer.hasOwnProperty('path')) {
             this.address = printer.path
         }
     }
+    EventEmitter.call(this);
     return this;
 };
 
