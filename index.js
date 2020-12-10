@@ -43,7 +43,7 @@ Win.prototype.write = function (data, callback) {
         const res = this.device.Print(this.address, data);
         callback && callback(res, this.device);
     }else{
-        callback && callback("address error");
+        callback && callback("address is empty");
     }
     return this;
 };
@@ -55,11 +55,7 @@ Win.prototype.write = function (data, callback) {
  */
 Win.prototype.close = function (callback) {
     if (this.device) {
-        console.log(this.address);
-        
-        if (this.address) {
-            this.device.Disconnect(this.address);
-        }
+        this.device.Disconnect(this.address);
         this.device = null;
     }
     this.emit('disconnect', this.device);
