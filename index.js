@@ -12,7 +12,7 @@ function Win(address) {
     if (address) {
         this.address = address;;
     }else{
-        const usb = addon.GetUsbDeviceList();
+        const usb = this.device.GetUsbDeviceList();
         const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
         this.address = printer.path
     }

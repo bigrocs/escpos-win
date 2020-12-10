@@ -21,6 +21,6 @@
   ],
   "dependencies": {
     "escpos": "^3.0.0-alpha.6",
-    "node-escpos-win": "^1.0.0"
+    "node-escpos-win": "^1.0.2"
   }
 }
