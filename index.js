@@ -9,6 +9,7 @@ const EventEmitter = require('events');
  */
 function Win(address) {
     this.device = require('node-escpos-win');
+    EventEmitter.call(this);
     if (address) {
         this.address = address;;
     }else{
@@ -18,7 +19,6 @@ function Win(address) {
             this.address = printer.path
         }
     }
-    EventEmitter.call(this);
     return this;
 };
 
