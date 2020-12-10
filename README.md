@@ -1,6 +1,9 @@
 
 ## escpos-win
 
+```
+npm install escpos-win --save-optional
+```
 #### Win()
 ```javascript
 const escpos = require('escpos');
