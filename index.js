@@ -59,8 +59,6 @@ Win.prototype.close = function (callback) {
         
         if (this.address) {
             this.device.Disconnect(this.address);
-        }else {
-            callback && callback("address error");
         }
         this.device = null;
     }
