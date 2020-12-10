@@ -20,7 +20,7 @@
     "win32"
   ],
   "dependencies": {
-    "escpos": "^3.0.0-alpha.6",
+    "escpos": "^3.0.0-alpha.1",
     "node-escpos-win": "^1.0.2"
   }
 }
