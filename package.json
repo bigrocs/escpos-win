@@ -4,7 +4,7 @@
   "description": "node-escpos win usb com lpt",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/bigrocs/escpos-win#readme",
   "os": [
     "win32"
-  ]
+  ],
+  "dependencies": {
+    "escpos": "^3.0.0-alpha.6",
+    "node-escpos-win": "^1.0.0"
+  }
 }
