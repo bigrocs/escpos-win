@@ -15,8 +15,9 @@ function Win(address) {
         const usb = this.device.GetUsbDeviceList();
         const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
         console.log(printer);
-        
-        this.address = printer.path
+        if (printer.length>0) {
+            this.address = printer.path
+        }
     }
     EventEmitter.call(this);
     return this;
@@ -39,8 +40,12 @@ Win.prototype.open = function (callback) {
  * @return 
  */
 Win.prototype.write = function (data, callback) {
-    const res = this.device.Print(this.address, data);
-    callback && callback(res, this.device);
+    if (this.address) {
+        const res = this.device.Print(this.address, data);
+        callback && callback(res, this.device);
+    }else{
+        callback("address error");
+    }
     return this;
 };
 
@@ -51,7 +56,11 @@ Win.prototype.write = function (data, callback) {
  */
 Win.prototype.close = function (callback) {
     if (this.device) {
-        this.device.Disconnect(this.address);
+        if (this.address) {
+            this.device.Disconnect(this.address);
+        }else {
+            callback("address error");
+        }
         this.device = null;
     }
     this.emit('disconnect', this.device);
