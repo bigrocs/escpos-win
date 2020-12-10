@@ -1,0 +1,22 @@
+{
+  "name": "escpos-win",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigrocs/escpos-win.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigrocs/escpos-win/issues"
+  },
+  "homepage": "https://github.com/bigrocs/escpos-win#readme",
+  "os": [
+    "win32"
+  ]
+}
