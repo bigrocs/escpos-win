@@ -4,7 +4,7 @@
     - usb免驱动
     - 自动获取第一个usb打印机
 ```
-npm install escpos-win --save-optional
+npm install escpos-win
 ```
 #### Win()
 ```javascript
