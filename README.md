@@ -9,6 +9,11 @@
 npm install escpos-win
 npm test
 ```
+
+```
+yarn add escpos-win
+yarn test
+```
 #### Win()
 ```javascript
 const escpos = require('escpos');
