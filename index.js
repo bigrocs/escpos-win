@@ -14,12 +14,13 @@ function Win(address) {
     }else{
         const usb = this.device.GetUsbDeviceList();
         if (usb.error) {
-            throw new Error(usb.error);
-        }
-        if (usb.hasOwnProperty('list')) {
-            const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
-            if (printer) {
-                this.address = printer.path
+            console.error(usb);
+        }else{
+            if (usb.hasOwnProperty('list')) {
+                const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
+                if (printer) {
+                    this.address = printer.path
+                }
             }
         }
     }
