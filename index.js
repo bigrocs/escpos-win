@@ -13,7 +13,7 @@ function Win(address) {
         this.address = address;;
     }else{
         const usb = this.device.GetUsbDeviceList();
-        if (usb && usb.length>0) {
+        if (usb.hasOwnProperty('list')) {
             const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
             if (printer.hasOwnProperty('path')) {
                 this.address = printer.path
