@@ -15,7 +15,7 @@ function Win(address) {
         const usb = this.device.GetUsbDeviceList();
         if (usb.hasOwnProperty('list')) {
             const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
-            if (printer.hasOwnProperty('path')) {
+            if (printer) {
                 this.address = printer.path
             }
         }
