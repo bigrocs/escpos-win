@@ -1,6 +1,6 @@
 {
   "name": "escpos-win",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "node-escpos win usb com lpt",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,6 @@
   "homepage": "https://github.com/bigrocs/escpos-win#readme",
   "dependencies": {
     "escpos": "^3.0.0-alpha.1",
-    "node-escpos-win": "^1.0.9"
+    "node-escpos-win": "^1.0.10"
   }
 }
