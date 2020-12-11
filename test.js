@@ -12,6 +12,7 @@ const printer = new escpos.Printer(device, options);
 
 device.open(function (error) {
     printer
+        .hardware('init')
         // .font('a')
         // .align('ct')
         // .style('bu')
