@@ -56,8 +56,9 @@ Win.prototype.write = function (data, callback) {
  * @return {[type]}            [description]
  */
 Win.prototype.close = function (callback) {
-    if (this.device) {
+    if (this.address) {
         this.device.Disconnect(this.address);
+        this.address = null;
         this.device = null;
     }
     this.emit('disconnect', this.device);
