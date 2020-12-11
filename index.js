@@ -20,6 +20,9 @@ function Win(address) {
             }
         }
     }
+    if (!this.address){
+        throw new Error('Can not find printer');
+    }
     EventEmitter.call(this);
     return this;
 };
