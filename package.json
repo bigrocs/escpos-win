@@ -1,6 +1,6 @@
 {
   "name": "escpos-win",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "node-escpos win usb com lpt",
   "main": "index.js",
   "scripts": {
