@@ -1,6 +1,6 @@
 {
   "name": "escpos-win",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "node-escpos win usb com lpt",
   "main": "index.js",
   "scripts": {
@@ -16,11 +16,8 @@
     "url": "https://github.com/bigrocs/escpos-win/issues"
   },
   "homepage": "https://github.com/bigrocs/escpos-win#readme",
-  "os": [
-    "win32"
-  ],
   "dependencies": {
     "escpos": "^3.0.0-alpha.1",
-    "node-escpos-win": "^1.0.2"
+    "node-escpos-win": "^1.0.6"
   }
 }
