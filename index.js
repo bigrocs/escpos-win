@@ -13,6 +13,9 @@ function Win(address) {
         this.address = address;;
     }else{
         const usb = this.device.GetUsbDeviceList();
+        if (usb.error) {
+            throw new Error(usb.error);
+        }
         if (usb.hasOwnProperty('list')) {
             const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
             if (printer) {
