@@ -1,10 +1,13 @@
 
-## escpos-win
+## node-escpos 插件
+## escpos-win 
 ### windos
     - usb免驱动
     - 自动获取第一个usb打印机
+### 安装测试
 ```
 npm install escpos-win
+npm test
 ```
 #### Win()
 ```javascript
