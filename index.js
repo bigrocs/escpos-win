@@ -12,15 +12,25 @@ function Win(address) {
     if (address) {
         this.address = address;;
     }else{
-        const usb = this.device.GetUsbDeviceList();
-        if (usb.error) {
-            console.error(usb);
-        }else{
-            if (usb.hasOwnProperty('list')) {
+        if (!this.address) {
+            const usb = this.device.GetDeviceList("USB")
+            if (usb.number>0) {
                 const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
                 if (printer) {
                     this.address = printer.path
                 }
+            }
+        }
+        if (!this.address) {
+            const lpt = this.device.GetDeviceList("LPT")
+            if (lpt.number > 0) {
+                this.address = lpt.list[0].path
+            }
+        }
+        if (!this.address) {
+            const com = this.device.GetDeviceList("COM")
+            if (com.number > 0) {
+                this.address = com.list[0].path
             }
         }
     }
