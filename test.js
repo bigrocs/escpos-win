@@ -26,6 +26,6 @@ device.open(function (error) {
         //     ],
         //     { encoding: 'cp857', size: [1, 1] } // Optional
         // )
-        .qrcode('00022012140016')
+        .qrcode('1234567')
         .cut().close()
 });
