@@ -17,7 +17,7 @@ device.open(function (error) {
         .text('The quick brown fox jumps over the lazy dog')
         .text('敏捷的棕色狐狸跳过懒狗')
         // 00122012140016
-        .qrcode('00122012140016', 'code39')
+        // .qrcode('00122012140016', 'code39')
         // .table(["One", "Two", "Three"])
         // .tableCustom(
         //     [
@@ -28,7 +28,7 @@ device.open(function (error) {
         //     { encoding: 'cp857', size: [1, 1] } // Optional
         // )
         // .qrcode('ทดสอบ')
-        .qrimage('https://github.com/song940/node-escpos', { type: 'png', mode: 'dhdw',size:1 }, function (err) {
+        .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }, function (err) {
             this.cut();
             this.close();
         });
