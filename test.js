@@ -10,29 +10,16 @@ const printer = new escpos.Printer(device, options);
 device.open(function (error) {
     printer
         .hardware('init')
-        // .font('a')
-        // .align('ct')
-        // .style('bu')
-        // .size(1, 1)
-        .text('The quick brown fox jumps over the lazy dog')
-        .text('敏捷的棕色狐狸跳过懒狗')
-        // 00122012140016
-        // .qrcode('00122012140016', 'code39')
-        // .table(["One", "Two", "Three"])
-        // .tableCustom(
-        //     [
-        //         { text: "Left", align: "LEFT", width: 0.33, style: 'B' },
-        //         { text: "Center", align: "CENTER", width: 0.33 },
-        //         { text: "Right", align: "RIGHT", width: 0.33 }
-        //     ],
-        //     { encoding: 'cp857', size: [1, 1] } // Optional
-        // )
-        // .qrcode('ทดสอบ')
-        .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }
-        // , function (err) {
-        //     this.cut();
-        //     this.close();
-        // }
-        ).cut().close()
-        // .text('敏捷的棕色狐狸跳过懒狗\n\n')
+        .model('qsprinter')
+        .font('a')
+        .align('ct')
+        .size(1, 1)
+        .encode('utf8')
+        .text('QR code example')
+        // .qrcodeqs('http://agriex.market')
+        .qrcode('ทดสอบ')
+        // .barcode('123456789012', 'EAN13') // code length 12
+        // .barcode('109876543210') // default type 'EAN13'
+        // .barcode('7654321', 'EAN8') // The EAN parity bit is automatically added.
+        .close();
 });
