@@ -17,7 +17,7 @@ device.open(function (error) {
         .text('The quick brown fox jumps over the lazy dog')
         .text('敏捷的棕色狐狸跳过懒狗')
         // 00122012140016
-        .barcode('00122012140016', 'EAN8')
+        .barcode('00122012140016', 'code128')
         // .table(["One", "Two", "Three"])
         // .tableCustom(
         //     [
