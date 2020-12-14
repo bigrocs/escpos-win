@@ -28,7 +28,7 @@ device.open(function (error) {
         //     { encoding: 'cp857', size: [1, 1] } // Optional
         // )
         // .qrcode('ทดสอบ')
-        .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }, function (err) {
+        .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:1 }, function (err) {
             this.cut();
             this.close();
         });
