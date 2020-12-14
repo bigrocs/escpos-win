@@ -32,5 +32,5 @@ device.open(function (error) {
             this.cut();
             this.close();
         })
-        .text('敏捷的棕色狐狸跳过懒狗\n\n').cut().close()
+        .text('敏捷的棕色狐狸跳过懒狗\n\n').cut().close();
 });
