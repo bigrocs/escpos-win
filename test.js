@@ -26,6 +26,7 @@ device.open(function (error) {
         //     ],
         //     { encoding: 'cp857', size: [1, 1] } // Optional
         // )
+        .qrcode('1234567')
         .qrimage('https://github.com/song940/node-escpos', function (err) {
             this.cut();
             this.close();
