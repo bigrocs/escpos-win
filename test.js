@@ -31,6 +31,5 @@ device.open(function (error) {
         .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }, function (err) {
             this.cut();
             this.close();
-        })
-        .text('敏捷的棕色狐狸跳过懒狗\n\n').cut().close();
+        });
 });
