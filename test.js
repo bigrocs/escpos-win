@@ -8,21 +8,20 @@ const options = { encoding: "GB18030" /* default */ }
 const printer = new escpos.Printer(device, options);
 
 device.open(function (error) {
-    printer
-        .hardware('init')
-        .model('qsprinter')
-        .font('a')
-        .align('ct')
-        .style('bu')
-        .size(1, 1)
-        .encode('tis620')
-        .text('The quick brown fox jumps over the lazy dog')
-        .text('สวัสดีภาษาไทย')
-        .close();
-  // .text('敏捷的棕色狐狸跳过懒狗')
-  // .barcode('1234567', 'EAN8')
-  // .qrimage('https://github.com/song940/node-escpos', function(err){
-  //   this.cut();
-  //   this.close();
-  // });
+    escpos.Image.load(tux, function (image) {
+
+        device.open(function () {
+
+            printer.hardware('init')
+                .align('ct')
+                .image(image, 's8')
+                .then(() => {
+                    printer.cut().close();
+                });
+
+            // OR non-async .raster(image, "mode") : printer.text("text").raster(image).cut().close();
+
+        });
+
+    });
 });
