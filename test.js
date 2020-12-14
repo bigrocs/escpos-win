@@ -28,6 +28,11 @@ device.open(function (error) {
         //     { encoding: 'cp857', size: [1, 1] } // Optional
         // )
         // .qrcode('ทดสอบ')
-        .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 })
-        .text('敏捷的棕色狐狸跳过懒狗\n\n').cut().close();
+        .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }
+        // , function (err) {
+        //     this.cut();
+        //     this.close();
+        // }
+        ).cut().close()
+        // .text('敏捷的棕色狐狸跳过懒狗\n\n')
 });
