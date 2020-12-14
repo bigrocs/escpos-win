@@ -29,6 +29,7 @@ device.open(function (error) {
         // )
         // .qrcode('ทดสอบ')
         .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }, function (err) {
+            this.text('敏捷的棕色狐狸跳过懒狗')
             this.cut();
             this.close();
         });
