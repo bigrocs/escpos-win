@@ -1,4 +1,5 @@
 const escpos = require('escpos');
+const path = require('path');
 escpos.Win = require('./index.js');
 
 const device = new escpos.Win(); // 调用顺序 USB LPT1 COM1
