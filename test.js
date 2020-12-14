@@ -13,13 +13,16 @@ device.open(function (error) {
         .model('qsprinter')
         .font('a')
         .align('ct')
+        .style('bu')
         .size(1, 1)
-        .encode('utf8')
-        .text('QR code example')
-        // .qrcodeqs('http://agriex.market')
-        .qrcode('ทดสอบ')
-        // .barcode('123456789012', 'EAN13') // code length 12
-        // .barcode('109876543210') // default type 'EAN13'
-        // .barcode('7654321', 'EAN8') // The EAN parity bit is automatically added.
+        .encode('tis620')
+        .text('The quick brown fox jumps over the lazy dog')
+        .text('สวัสดีภาษาไทย')
         .close();
+  // .text('敏捷的棕色狐狸跳过懒狗')
+  // .barcode('1234567', 'EAN8')
+  // .qrimage('https://github.com/song940/node-escpos', function(err){
+  //   this.cut();
+  //   this.close();
+  // });
 });
