@@ -7,7 +7,7 @@ const options = { encoding: "GB18030" /* default */ }
 // encoding is optional
 const printer = new escpos.Printer(device, options);
 
-device.open(function (error) {
+    const tux = path.join(__dirname, 'tux.png');
     escpos.Image.load(tux, function (image) {
 
         device.open(function () {
@@ -24,4 +24,3 @@ device.open(function (error) {
         });
 
     });
-});
