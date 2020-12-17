@@ -1,6 +1,10 @@
 
 ## node-escpos 插件
 ## escpos-win 
+### win构建重要  注意使用 vs2015
+```
+npm install --global --production windows-build-tools --vs2015
+```
 ### windos
     - usb免驱动
     - 自动获取第一个usb打印机
