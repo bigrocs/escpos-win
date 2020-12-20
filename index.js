@@ -39,7 +39,7 @@ function Win(type) {
                 number = list.length
             }
             number = number ? number-1 : 0 // 设备实际编号-1
-            this.address = list[number]
+            this.address = list[number].path
         }
     }
     if (!this.address){
@@ -67,8 +67,6 @@ Win.prototype.open = function (callback) {
  */
 Win.prototype.write = function (data, callback) {
     if (this.address) {
-        console.log(this.address, data);
-        
         const res = this.device.Print(this.address, data);
         if (!Boolean(res.success)) {
             callback && callback(res.err, this.device);
