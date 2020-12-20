@@ -1,7 +1,7 @@
 const escpos = require('escpos');
 escpos.Win = require('./index.js');
 
-const device = new escpos.Win(); // 调用顺序 USB LPT1 COM1
+const device = new escpos.Win("LPT1"); // 调用顺序 USB LPT1 COM1
 
 const options = { encoding: "GB18030" /* default */ }
 // encoding is optional
@@ -30,6 +30,8 @@ device.open(function (error) {
         // .qrcode('ทดสอบ')
         .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }, function (err) {
             this.cut();
-            this.close();
+            this.close(err=>{
+                console.log(err);
+            });
         })
 });

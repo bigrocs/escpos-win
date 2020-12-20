@@ -7,31 +7,39 @@ const EventEmitter = require('events');
  * @param {[type]} address
  * @param {[type]} port
  */
-function Win(address) {
+function Win(type) {
     this.device = require('node-escpos-win');
-    if (address) {
-        this.address = address;;
-    }else{
-        if (!this.address) {
-            const usb = this.device.GetDeviceList("USB")
-            if (usb.number>0) {
-                const printer = usb.list.find(item => item.service === 'usbprint' || item.name === 'USB 打印支持');
-                if (printer) {
-                    this.address = printer.path
-                }
-            }
+    let reg = RegExp(/([A-Z]+)(\d+)/)
+    if (!type) {
+        type = "USB1" 
+    }
+    if (type.match(reg)) {
+        const s = reg.exec(type)
+        const name = s[1]
+        let number = Number(s[2])
+        let list = []
+        switch (name) {
+            case "LPT":
+                list = this.device.GetDeviceList("LPT").list
+                break;
+            case "COM":
+                list = this.device.GetDeviceList("COM").list
+                break;
+            default:
+                let usb = this.device.GetDeviceList("USB").list
+                usb.forEach(item => {
+                    if (item.service === 'usbprint' || item.name === 'USB 打印支持') {
+                        list.push(item)
+                    }
+                });
+                break;
         }
-        if (!this.address) {
-            const lpt = this.device.GetDeviceList("LPT")
-            if (lpt.number > 0) {
-                this.address = lpt.list[0].path
+        if (list.length > 0) {
+            if (list.length < number) { //找不到使用最后面设备
+                number = list.length
             }
-        }
-        if (!this.address) {
-            const com = this.device.GetDeviceList("COM")
-            if (com.number > 0) {
-                this.address = com.list[0].path
-            }
+            number = number ? number-1 : 0 // 设备实际编号-1
+            this.address = list[number]
         }
     }
     if (!this.address){
