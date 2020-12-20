@@ -8,6 +8,7 @@ const options = { encoding: "GB18030" /* default */ }
 const printer = new escpos.Printer(device, options);
 
 device.open(function (error) {
+    console.log(0, error);
     printer
         .hardware('init')
         // .font('a')
@@ -31,7 +32,7 @@ device.open(function (error) {
         .qrimage('00122012140016', { type: 'png', mode: 'dhdw',size:2 }, function (err) {
             this.cut();
             this.close(err=>{
-                console.log(err);
+                console.log(1,err);
             });
         })
 });
