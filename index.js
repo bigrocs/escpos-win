@@ -68,7 +68,7 @@ Win.prototype.open = function (callback) {
 Win.prototype.write = function (data, callback) {
     if (this.address) {
         const res = this.device.Print(this.address, data);
-        if (!res.success) {
+        if (!Boolean(res.success)) {
             callback && callback(res.err, this.device);
         }
     }else{
